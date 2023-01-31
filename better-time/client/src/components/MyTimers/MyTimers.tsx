@@ -1,6 +1,14 @@
+//Import packages
 import React from 'react'
 
+//Import Components
+import SequenceCardList from '../SequenceCard/SequenceCardList';
+import LiveCardList from '../LiveCard/LiveCardList';
+
+//Import styles and icons
 import styles from './MyTimers.module.css';
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
 
 function MyTimers() {
     return (
@@ -9,16 +17,15 @@ function MyTimers() {
             <div className={styles.timersCtn}>
                 <div className={styles.sequencesCtn}>
                     <p>My sequences</p>
-                    <div className={styles.cardsCtn}>
-                        <div className={styles.card}><p>CARD SEQUENCE</p></div>
-                    </div>
+                    <SequenceCardList></SequenceCardList>
                 </div>
 
                 <div className={styles.liveTimersCtn}>
                     <p>My Live Timers</p>
-                    <div className={styles.cardsCtn}>
-                        <div className={styles.card}><p>CARD LIVE TIMER</p></div>
-                    </div>
+                    <LiveCardList></LiveCardList>
+                </div>
+                <div className={styles.addBtnCtn}>
+                <span><Fab color="primary"><AddIcon /></Fab></span>
                 </div>
             </div>
             <div className={styles.sideSpaceCtn}></div>
