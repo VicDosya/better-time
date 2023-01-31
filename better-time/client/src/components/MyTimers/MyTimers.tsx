@@ -4,11 +4,11 @@ import React from 'react'
 //Import Components
 import SequenceCardList from '../SequenceCard/SequenceCardList';
 import LiveCardList from '../LiveCard/LiveCardList';
+import AddTimer from '../AddTimer/AddTimer';
 
 //Import styles and icons
 import styles from './MyTimers.module.css';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+
 
 function MyTimers() {
     return (
@@ -24,9 +24,7 @@ function MyTimers() {
                     <p>My Live Timers</p>
                     <LiveCardList></LiveCardList>
                 </div>
-                <div className={styles.addBtnCtn}>
-                <span><Fab color="primary"><AddIcon /></Fab></span>
-                </div>
+                <AddTimer></AddTimer>
             </div>
             <div className={styles.sideSpaceCtn}></div>
         </div>
