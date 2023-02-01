@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 //Import styles and icons
@@ -7,41 +7,31 @@ import HomeIcon from "@mui/icons-material/Home";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import TimerIcon from '@mui/icons-material/Timer';
 import PeopleIcon from '@mui/icons-material/People';
+//Import types
+import { DrawerPropsType } from './DrawerNavBar.types';
 
-function DrawerNavBar() {
+function DrawerNavBar({ isDrawerOpen, setIsDrawerOpen }: DrawerPropsType) {
+
+  //useNavigate variable
   let navigate = useNavigate();
 
-  //Navgiation functionality
-  const navigateHome = (event: React.MouseEvent<HTMLDivElement>) => {
-    navigate("/");
-  };
-  const navigateFavorites = (event: React.MouseEvent<HTMLDivElement>) => {
-    navigate("/favorites");
-  };
-  const navigateMyTimers = (event: React.MouseEvent<HTMLDivElement>) => {
-    navigate("/mytimers");
-  };
-  const navigateSocial = (event: React.MouseEvent<HTMLDivElement>) => {
-    navigate("/social");
-  };
-
   return (
-    <div className={styles.drawerCtn}>
-      <div className={styles.homeCtn} onClick={navigateHome}>
+    <div className={isDrawerOpen ? styles.openDrawerCtn : styles.closedDrawerCtn}>
+      <div className={styles.homeCtn} onClick={() => navigate("/")}>
         <HomeIcon />
-        <span>Home</span>
+        <span>{isDrawerOpen ? 'Home' : ''}</span>
       </div>
-      <div className={styles.favoritesCtn} onClick={navigateFavorites}>
+      <div className={styles.favoritesCtn} onClick={() => navigate("/favorites")}>
         <FavoriteIcon />
-        <span>Favorites</span>
+        <span>{isDrawerOpen ? 'Favorites' : ''}</span>
       </div>
-      <div className={styles.timersCtn} onClick={navigateMyTimers}>
+      <div className={styles.timersCtn} onClick={() => navigate("/mytimers")}>
         <TimerIcon />
-        <span>My Timers</span>
+        <span>{isDrawerOpen ? 'My Timers' : ''}</span>
       </div>
-      <div className={styles.socialCtn} onClick={navigateSocial}>
+      <div className={styles.socialCtn} onClick={() => navigate("/social")}>
         <PeopleIcon />
-        <span>Social</span>
+        <span>{isDrawerOpen ? 'Social' : ''}</span>
       </div>
     </div>
   );

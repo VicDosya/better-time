@@ -10,7 +10,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AlarmIcon from "@mui/icons-material/Alarm";
 
-function TopBar() {
+//Import types
+import { onButtonClickType } from "./TopBar.types";
+
+
+
+function TopBar({ onButtonClick }: onButtonClickType) {
     return (
         <div className={styles.ctn}>
             <div className={styles.titleButtonCtn}>
@@ -21,7 +26,7 @@ function TopBar() {
                     </h1>
                 </div>
                 <div>
-                    <button className={styles.menuIconBtn}>
+                    <button onClick={onButtonClick} className={styles.menuIconBtn}>
                         <MenuIcon></MenuIcon>
                     </button>
                 </div>

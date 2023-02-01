@@ -1,5 +1,5 @@
 //Import Packages
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 //Import Components
@@ -12,16 +12,24 @@ import Social from './components/Social/Social';
 //Import styles
 import './App.css';
 import MyTimers from './components/MyTimers/MyTimers';
-import ClosedNavBar from './components/DrawerNavBar/ClosedNavBar';
-
 
 function App() {
+  //useState variables
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  //Control the drawer with handleClick function
+  const handleMenuClick = () => {
+    if (isDrawerOpen) {
+      return setIsDrawerOpen(false);
+    }
+    setIsDrawerOpen(true);
+  };
+
   return (
     <div className="App">
-      <TopBar></TopBar>
+      <TopBar onButtonClick={handleMenuClick}></TopBar>
       <div className='drawerContent'>
-        <DrawerNavBar></DrawerNavBar>
-        {/* <ClosedNavBar></ClosedNavBar> */}
+        <DrawerNavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen}></DrawerNavBar>
 
         <Routes>
           <Route path='/' element={<Home />}></Route>

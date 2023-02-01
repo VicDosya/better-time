@@ -1,5 +1,12 @@
-.drawerCtn {
+.openDrawerCtn {
   width: 16%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid rgb(215, 215, 215);
+}
+.closedDrawerCtn{
+  width: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
