@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 //Import styles and icons
@@ -10,7 +10,7 @@ import PeopleIcon from "@mui/icons-material/People";
 //Import types
 import { DrawerPropsType } from "./DrawerNavBar.types";
 
-function DrawerNavBar({ isDrawerOpen, setIsDrawerOpen }: DrawerPropsType) {
+function DrawerNavBar({ isDrawerOpen }: DrawerPropsType) {
   //useNavigate variable
   let navigate = useNavigate();
 

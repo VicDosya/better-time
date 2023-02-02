@@ -1,6 +1,7 @@
 //Import Packages
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useQuery, gql } from '@apollo/client';
 
 //Import Components
 import TopBar from './components/TopBar/TopBar';
@@ -17,6 +18,17 @@ function App() {
   //useState variables
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const GET_TEST = gql`
+  query Query {
+    testings {
+      first
+      second
+    }
+  }
+  `;
+    const testData = useQuery(GET_TEST);
+    console.log(testData);
+
   //Control the drawer with handleClick function
   const handleMenuClick = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -24,6 +36,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <TopBar onButtonClick={handleMenuClick}></TopBar>
       <div className='drawerContent'>
         <DrawerNavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen}></DrawerNavBar>
