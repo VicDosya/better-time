@@ -4,14 +4,6 @@ import express from "express";
 import cors from "cors";
 import dotenv from 'dotenv';
 dotenv.config();
-import testData from './models/testData';
-
-
-//Database connection
-mongoose
-  .connect(process.env.MONGODB_CONNECTION_STRING!) //added "!"  -> will throw an error if the variable is not defined.
-  .then(() => console.log("Connected to DB"))
-  .catch((err) => console.log(err));
 
 //graphql server
 //types query/mutation/subscription
@@ -21,7 +13,7 @@ const typeDefs = gql`
         second: String
     }
     type Query {
-      getTestData: [Test]
+      testings: [Test]
     }
 `;
 
