@@ -19,10 +19,7 @@ function App() {
 
   //Control the drawer with handleClick function
   const handleMenuClick = () => {
-    if (isDrawerOpen) {
-      return setIsDrawerOpen(false);
-    }
-    setIsDrawerOpen(true);
+    setIsDrawerOpen(!isDrawerOpen);
   };
 
   return (

@@ -13,8 +13,6 @@ import AlarmIcon from "@mui/icons-material/Alarm";
 //Import types
 import { onButtonClickType } from "./TopBar.types";
 
-
-
 function TopBar({ onButtonClick }: onButtonClickType) {
     return (
         <div className={styles.ctn}>
