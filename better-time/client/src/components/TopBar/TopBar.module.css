@@ -1,0 +1,68 @@
+.ctn {
+  width: 100%;
+  height: 85px;
+  background-color: white;
+  display: flex;
+}
+.webTitleCtn:hover {
+  cursor: pointer;
+}
+.titleButtonCtn {
+  width: 350px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.title {
+  font-size: 23px;
+}
+
+.menuIconBtn {
+  background-color: rgb(215, 215, 215);
+  border: none;
+  border-radius: 7px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  transition: 0.2s;
+}
+.menuIconBtn:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: rgb(150, 150, 150);
+  color: white;
+}
+.menuIconBtn:active {
+  cursor: pointer;
+  background-color: rgb(128, 128, 128);
+  color: white;
+}
+
+.searchProfileCtn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profileSettingsCtn {
+  display: flex;
+  width: 100px;
+  height: 50px;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(215, 215, 215);
+  border-radius: 25px;
+  margin-right: 20px;
+  transition: 0.2s;
+}
+.profileSettingsCtn:hover {
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: rgb(150, 150, 150);
+}
+.settingsIcon {
+  display: flex;
+  align-items: center;
+  color: white;
+}
