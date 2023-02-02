@@ -21,7 +21,7 @@ function DrawerNavBar({ isDrawerOpen, setIsDrawerOpen }: DrawerPropsType) {
       <div className={styles.homeCtn} onClick={() => navigate("/")}>
         <span className={styles.textCtn}>
           <HomeIcon />
-          {isDrawerOpen ? "Home" : ""}
+          {isDrawerOpen && "Home"}
         </span>
       </div>
       <div
@@ -30,19 +30,19 @@ function DrawerNavBar({ isDrawerOpen, setIsDrawerOpen }: DrawerPropsType) {
       >
         <span className={styles.textCtn}>
           <FavoriteIcon />
-          {isDrawerOpen ? "Favorites" : ""}
+          {isDrawerOpen && "Favorites"}
         </span>
       </div>
       <div className={styles.timersCtn} onClick={() => navigate("/mytimers")}>
         <span className={styles.textCtn}>
           <TimerIcon />
-          {isDrawerOpen ? "My Timers" : ""}
+          {isDrawerOpen && "Timers"}
         </span>
       </div>
       <div className={styles.socialCtn} onClick={() => navigate("/social")}>
         <span className={styles.textCtn}>
           <PeopleIcon />
-          {isDrawerOpen ? "Social" : ""}
+          {isDrawerOpen && "Social"}
         </span>
       </div>
     </div>
