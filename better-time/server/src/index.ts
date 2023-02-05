@@ -1,37 +1,22 @@
+//Import packages
 import { ApolloServer, gql } from "apollo-server-express";
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
-//graphql server
-//types query/mutation/subscription
-const typeDefs = gql`
-    type Test {
-        first: String
-        second: String
-    }
-    type Query {
-      testings: [Test]
-    }
-`;
+//Import Types and Schemas
+import typeDefs from "./models/TypeDefs";
+import resolvers from "./models/Resolvers";
 
-//Define your data set
-const testings = [
-  {
-    first: "hello",
-    second: "Second Test",
-  },
-];
+//Database connection
+mongoose
+  .connect(process.env.MONGODB_CONNECTION_STRING!) //added "!"  -> will throw an error if the variable is not defined.
+  .then(() => console.log("Connected to DB"))
+  .catch((err) => console.log(err));
 
-//Define a resolver
-const resolvers = {
-  Query: {
-    testings: () => testings,
-  },
-};
-
+//GraphQL Server
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,

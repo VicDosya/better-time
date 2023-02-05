@@ -1,7 +1,6 @@
 //Import Packages
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useQuery, gql } from '@apollo/client';
 
 //Import Components
 import TopBar from './components/TopBar/TopBar';
@@ -17,17 +16,6 @@ import MyTimers from './components/MyTimers/MyTimers';
 function App() {
   //useState variables
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const GET_TEST = gql`
-  query Query {
-    testings {
-      first
-      second
-    }
-  }
-  `;
-    const testData = useQuery(GET_TEST);
-    console.log(testData);
 
   //Control the drawer with handleClick function
   const handleMenuClick = () => {
