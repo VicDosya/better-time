@@ -24,6 +24,7 @@ function App() {
 
   return (
     <div className="App">
+
       <TopBar onButtonClick={handleMenuClick}></TopBar>
       <div className='drawerContent'>
         <DrawerNavBar isDrawerOpen={isDrawerOpen} setIsDrawerOpen={setIsDrawerOpen}></DrawerNavBar>
