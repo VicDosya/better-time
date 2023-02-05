@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 //Import components and queries
 import { ADD_TIMER_MUTATION } from "./AddTimerQueries";
 
@@ -14,8 +15,8 @@ import CloseIcon from "@mui/icons-material/Close";
 function AddTimer() {
   //useState Variables
   //MODALS
-  const [firstModalIsOpen, setFirstModalIsOpen] = useState(false);
-  const [secondModalIsOpen, setSecondModalIsOpen] = useState(false);
+  const [addTimerModal, setAddTimerModal] = useState(false);
+  const [addSequenceTimerModal, setAddSequenceTimerModal] = useState(false);
   //INPUT
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -23,20 +24,25 @@ function AddTimer() {
   //MESSAGES
   const [message, setMessage] = useState("");
 
+  //useNavigate
+  const navigate = useNavigate();
+
   //useMutations hook, assign query mutation function to AddTimerMutation
   const [addTimerMutation, { data, loading, error }] =
     useMutation(ADD_TIMER_MUTATION);
 
   if (loading) {
-    setMessage("Loading...");
+    return <p>Loading...</p>;
   }
+
   if (error) {
-    setMessage(`Error: ${error.message}`);
+    return <p>Error: {error.message}</p>;
   }
   //Handle create timer
   const handleCreate = () => {
     //Assigning the variables from user input
     addTimerMutation({ variables: { title, description, imgUrl } });
+    setAddSequenceTimerModal(false);
   };
 
   Modal.setAppElement("#root");
@@ -44,7 +50,7 @@ function AddTimer() {
     <div>
       <div className={styles.addBtnCtn}>
         <span>
-          <Fab color="primary" onClick={() => setFirstModalIsOpen(true)}>
+          <Fab color="primary" onClick={() => setAddTimerModal(true)}>
             <AddIcon />
           </Fab>
         </span>
@@ -52,9 +58,9 @@ function AddTimer() {
       <div>
         <Modal
           className={styles.firstModal}
-          isOpen={firstModalIsOpen}
+          isOpen={addTimerModal}
           shouldCloseOnOverlayClick={false}
-          onRequestClose={() => setFirstModalIsOpen(false)}
+          onRequestClose={() => setAddTimerModal(false)}
         >
           <div className={styles.firstModalContent}>
             <div className={styles.modalTitleCtn}>
@@ -63,7 +69,7 @@ function AddTimer() {
               </div>
               <div className={styles.exitBtnCtn}>
                 <CloseIcon
-                  onClick={() => setFirstModalIsOpen(false)}
+                  onClick={() => setAddTimerModal(false)}
                 ></CloseIcon>
               </div>
             </div>
@@ -72,8 +78,8 @@ function AddTimer() {
               <div
                 className={styles.sequenceTimerCtn}
                 onClick={() => {
-                  setFirstModalIsOpen(false);
-                  setSecondModalIsOpen(true);
+                  setAddTimerModal(false);
+                  setAddSequenceTimerModal(true);
                 }}
               >
                 <p>Sequence Timer</p>
@@ -85,8 +91,8 @@ function AddTimer() {
               <div
                 className={styles.liveTimerCtn}
                 onClick={() => {
-                  setFirstModalIsOpen(false);
-                  setSecondModalIsOpen(true);
+                  setAddTimerModal(false);
+                  setAddSequenceTimerModal(true);
                 }}
               >
                 <p>Live Timer</p>
@@ -97,9 +103,9 @@ function AddTimer() {
         </Modal>
         <Modal
           className={styles.secondModal}
-          isOpen={secondModalIsOpen}
+          isOpen={addSequenceTimerModal}
           shouldCloseOnOverlayClick={false}
-          onRequestClose={() => setSecondModalIsOpen(false)}
+          onRequestClose={() => setAddSequenceTimerModal(false)}
         >
           <div className={styles.secondModalContent}>
             <div className={styles.modalTitleCtn}>
@@ -108,7 +114,7 @@ function AddTimer() {
               </div>
               <div className={styles.exitBtnCtn}>
                 <CloseIcon
-                  onClick={() => setSecondModalIsOpen(false)}
+                  onClick={() => setAddSequenceTimerModal(false)}
                 ></CloseIcon>
               </div>
             </div>
