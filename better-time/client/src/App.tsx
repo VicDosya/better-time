@@ -8,6 +8,7 @@ import DrawerNavBar from './components/DrawerNavBar/DrawerNavBar';
 import Home from './components/Home/Home';
 import Favorites from './components/Favorites/Favorites';
 import Social from './components/Social/Social';
+import SequenceTimerPage from './components/SequenceTimer/SequenceTimerPage';
 
 //Import styles
 import './App.css';
@@ -34,6 +35,7 @@ function App() {
           <Route path='/favorites' element={<Favorites />}></Route>
           <Route path='/mytimers' element={<MyTimers />}></Route>
           <Route path='/social' element={<Social />}></Route>
+          <Route path='/sequencetimer' element={<SequenceTimerPage />}></Route>
         </Routes>
       </div>
     </div>
