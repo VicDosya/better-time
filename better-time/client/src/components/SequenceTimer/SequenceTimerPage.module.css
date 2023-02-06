@@ -17,10 +17,10 @@
   );
   border-radius: 15px;
 }
+.sequencesCtn {
+  padding-left: 50px;
+}
 .cardsCtn {
   display: flex;
   flex-wrap: wrap;
-}
-.sequencesCtn {
-  padding-left: 50px;
 }

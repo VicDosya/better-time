@@ -1,5 +1,5 @@
 //Import packages
-import { ApolloServer, gql } from "apollo-server-express";
+import { ApolloServer } from "apollo-server-express";
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";

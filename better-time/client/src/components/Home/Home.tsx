@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './Home.module.css';
+//Import styles
+import styles from "./Home.module.css";
 
 function Home() {
   return (
@@ -10,7 +10,7 @@ function Home() {
       </div>
       <div className={styles.sideSpaceCtn}></div>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

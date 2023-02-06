@@ -1,5 +1,6 @@
 import { gql } from "@apollo/client";
 
+//Mutation to add a new card
 export const ADD_CARD_MUTATION = gql`
   mutation Mutation(
     $title: String
@@ -30,7 +31,7 @@ export const ADD_CARD_MUTATION = gql`
   }
 `;
 
-//query to get all sequence timers
+//Query to get all sequence cards
 export const GET_ALL_SEQUENCE_CARDS = gql`
   query Query {
     getAllSequenceCards {

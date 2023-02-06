@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './Favorites.module.css';
+//Import styles
+import styles from "./Favorites.module.css";
 
 function Favorites() {
   return (
@@ -10,7 +10,7 @@ function Favorites() {
       </div>
       <div className={styles.sideSpaceCtn}></div>
     </div>
-  )
+  );
 }
 
-export default Favorites
+export default Favorites;

@@ -1,52 +1,49 @@
 .card {
-    display: flex;
-    background-color: rgb(104, 104, 104);
-    width: 125px;
-    border-radius: 10px;
-    margin-left: 15px;
-    margin-top: 15px;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  .plusSymbol{
-    font-size: 25px;
-    color: white;
-  }
-  .card:hover {
-    background-color: rgb(131, 131, 131);
-  }
-
-  .exitBtnCtn {
-    display: flex;
-    justify-content: flex-end;
-    height: 5px;
-  }
-  .exitBtnCtn:hover {
-    cursor: pointer;
-  }
-  
-  .modal {
-    margin: 0 auto;
-    margin-top: 125px;
-    border: 1px solid rgb(179, 179, 179);
-    border-radius: 5px;
-    width: 800px;
-    background-color: rgb(243, 243, 243);
-  }
-  .modalContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .modalTitle {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .modalTitleCtn {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+  display: flex;
+  background-color: rgb(104, 104, 104);
+  width: 125px;
+  border-radius: 10px;
+  margin-left: 15px;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.card:hover {
+  background-color: rgb(131, 131, 131);
+}
+.plusSymbol {
+  font-size: 25px;
+  color: white;
+}
+.modal {
+  margin: 0 auto;
+  margin-top: 125px;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 5px;
+  width: 800px;
+  background-color: rgb(243, 243, 243);
+}
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modalTitleCtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.modalTitle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.exitBtnCtn {
+  display: flex;
+  justify-content: flex-end;
+  height: 5px;
+}
+.exitBtnCtn:hover {
+  cursor: pointer;
+}

@@ -1,4 +1,4 @@
-import React from "react";
+//Import packages
 import { useNavigate } from "react-router-dom";
 
 //Import styles and icons
@@ -7,6 +7,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import TimerIcon from "@mui/icons-material/Timer";
 import PeopleIcon from "@mui/icons-material/People";
+
 //Import types
 import { DrawerPropsType } from "./DrawerNavBar.types";
 
