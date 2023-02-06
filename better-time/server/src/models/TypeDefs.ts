@@ -14,10 +14,22 @@ const typeDefs = gql`
     description: String
     imgUrl: String
   }
+  type SequenceCard {
+    title: String
+    description: String
+    days: String
+    hours: String
+    minutes: String
+    seconds: String
+    imgUrl: String
+  }
 
   #Queries
   type Query {
     getAllSequenceTimers: [SequenceTimer]
+  }
+  type Query {
+    getAllSequenceCards: [SequenceCard]
   }
 
   #Mutations
@@ -27,6 +39,18 @@ const typeDefs = gql`
       description: String!
       imgUrl: String
     ): SequenceTimer
+  }
+
+  type Mutation {
+    addSequenceCard(
+      title: String
+      description: String
+      days: String
+      hours: String
+      minutes: String
+      seconds: String
+      imgUrl: String
+    ): SequenceCard
   }
 `;
 

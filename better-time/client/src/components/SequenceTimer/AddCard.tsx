@@ -1,15 +1,41 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import styles from "./AddCard.module.css";
+import { useMutation } from "@apollo/client";
 
-import AddIcon from "@mui/icons-material/Add";
+//Import components and queries
+import { ADD_CARD_MUTATION } from "./SequenceTimerQueries";
+
+//Import Styles and icons
 import CloseIcon from "@mui/icons-material/Close";
+import styles from "./AddCard.module.css";
 
 function AddCard() {
     //useState Variables
     //MODALS
     const [addCardModal, setAddCardModal] = useState(false);
+    //INPUT
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [days, setDays] = useState('');
+    const [hours, setHours] = useState('');
+    const [minutes, setMinutes] = useState('');
+    const [seconds, setSeconds] = useState('');
+    const [imgUrl, setImgUrl] = useState('');
+    //useMutation
+    const [addCardMutation, { data, loading, error }] = useMutation(ADD_CARD_MUTATION);
+    if (loading) {
+        return <p>Loading...</p>;
+    }
 
+    if (error) {
+        return <p>Error: {error.message}</p>;
+    }
+
+    //handleCreate button function
+    const handleCreate = () => {
+        addCardMutation({ variables: { title, description, days, hours, minutes, seconds, imgUrl } });
+        setAddCardModal(false);
+    };
     Modal.setAppElement("#root");
     return (
         <div>
@@ -34,36 +60,43 @@ function AddCard() {
                     <div>
                         <div>
                             <span>Title:</span>
-                            <input></input>
+                            <input value={title}
+                                onChange={(e) => setTitle(e.target.value)}></input>
                         </div>
                         <div>
                             <span>Description:</span>
-                            <input></input>
+                            <input value={description}
+                                onChange={(e) => setDescription(e.target.value)}></input>
                         </div>
                         <hr></hr>
                         <div>
                             <span>Days:</span>
-                            <input></input>
+                            <input type="number" value={days}
+                                onChange={(e) => setDays(e.target.value)}></input>
                         </div>
                         <div>
                             <span>Hours:</span>
-                            <input></input>
+                            <input type="number" value={hours}
+                                onChange={(e) => setHours(e.target.value)}></input>
                         </div>
                         <div>
                             <span>Minutes:</span>
-                            <input></input>
+                            <input type="number" value={minutes}
+                                onChange={(e) => setMinutes(e.target.value)}></input>
                         </div>
                         <div>
                             <span>Seconds:</span>
-                            <input></input>
+                            <input type="number" value={seconds}
+                                onChange={(e) => setSeconds(e.target.value)}></input>
                         </div>
                         <hr></hr>
                         <div>
                             <span>Image URL:</span>
-                            <input></input>
+                            <input value={imgUrl}
+                                onChange={(e) => setImgUrl(e.target.value)}></input>
                         </div>
                         <div>
-                            <button>Create</button>
+                            <button onClick={handleCreate}>Create</button>
                         </div>
                     </div>
                 </div>

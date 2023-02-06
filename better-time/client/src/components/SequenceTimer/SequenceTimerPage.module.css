@@ -19,5 +19,8 @@
 }
 .cardsCtn {
   display: flex;
+  flex-wrap: wrap;
+}
+.sequencesCtn {
   padding-left: 50px;
 }
