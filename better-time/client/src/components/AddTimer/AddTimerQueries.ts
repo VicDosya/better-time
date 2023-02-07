@@ -9,6 +9,7 @@ export const ADD_TIMER_MUTATION = gql`
       description: $description
       imgUrl: $imgUrl
     ) {
+      id
       title
       description
       imgUrl

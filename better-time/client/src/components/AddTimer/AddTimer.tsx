@@ -38,12 +38,13 @@ function AddTimer() {
     return <p>Error: {error.message}</p>;
   }
 
-  //Create a new timer function + navigation to sequence timer page
-  const handleCreate = () => {
+  //Create a new timer function + navigation to sequence timer page with its data
+  const handleCreate = async () => {
     //Assigning the variables from user input
-    addTimerMutation({ variables: { title, description, imgUrl } });
+    const { data } = await addTimerMutation({ variables: { title, description, imgUrl } });
     setAddSequenceTimerModal(false);
-    navigate("/sequencetimer");
+    console.log(data);
+    navigate(`/sequencetimer/${data.addSequenceTimer.id}`);
   };
 
   //Modal set root of the app element
