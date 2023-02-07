@@ -1,27 +1,37 @@
 //Import packages
 import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 
 //Import components
 import AddCard from "./AddCard";
 import CardList from "./CardList";
 
 //Import queries
-import { GET_ALL_SEQUENCE_CARDS } from "./SequenceTimerQueries";
+import { GET_SEQUENCE_TIMER } from "./SequenceTimerQueries";
 
 //Import styles
 import styles from "./SequenceTimerPage.module.css";
 
 function SequenceTimerPage() {
   //useState variables
-  const [sequenceCards, setSequenceCards] = useState([]);
+  const [sequenceTimer, setSequenceTimer] = useState([]);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
+  //useParams to get the id in the URL
+  const { id } = useParams();
 
   //useQuery to get all sequence cards + loading and error conditions
-  const { loading, error, data } = useQuery(GET_ALL_SEQUENCE_CARDS);
+  const { loading, error, data } = useQuery(GET_SEQUENCE_TIMER, {
+    variables: { sequenceTimerId: id }
+  });
 
   useEffect(() => {
     if (!loading && !error) {
-      setSequenceCards(data.getAllSequenceCards);
+      setSequenceTimer(data.sequenceTimer.timers);
+      setTitle(data.sequenceTimer.title);
+      setDescription(data.sequenceTimer.description);
     }
   }, [loading, error, data]);
 
@@ -38,12 +48,12 @@ function SequenceTimerPage() {
       <div className={styles.sideSpaceCtn}></div>
       <div className={styles.timersCtn}>
         <div className={styles.sequencesCtn}>
-          <p>sequence timer title from its creation id</p>
-          <p>sequence timer description from its creation id</p>
+          <p>{title}</p>
+          <p>{description}</p>
         </div>
         <div className={styles.cardsCtn}>
-          <CardList sequenceCards={sequenceCards}></CardList>
-          <AddCard></AddCard>
+          <CardList sequenceCard={sequenceTimer}></CardList>
+          <AddCard sequenceTimerId={id}></AddCard>
         </div>
       </div>
       <div className={styles.sideSpaceCtn}></div>

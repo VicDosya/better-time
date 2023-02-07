@@ -10,7 +10,7 @@ import { ADD_CARD_MUTATION } from "./SequenceTimerQueries";
 import styles from "./AddCard.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 
-function AddCard() {
+function AddCard({ sequenceTimerId }: any) {
   //useState Variables
   //MODALS
   const [addCardModal, setAddCardModal] = useState(false);
@@ -37,7 +37,7 @@ function AddCard() {
   //Create a new card function
   const handleCreate = () => {
     addCardMutation({
-      variables: { title, description, days, hours, minutes, seconds, imgUrl },
+      variables: { sequenceTimerId, title, description, days, hours, minutes, seconds, imgUrl },
     });
     setAddCardModal(false);
   };

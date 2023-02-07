@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 //Mutation to add a new card
 export const ADD_CARD_MUTATION = gql`
   mutation Mutation(
+    $sequenceTimerId: ID!
     $title: String
     $description: String
     $days: String
@@ -12,6 +13,7 @@ export const ADD_CARD_MUTATION = gql`
     $imgUrl: String
   ) {
     addSequenceCard(
+      sequenceTimerId: $sequenceTimerId
       title: $title
       description: $description
       days: $days
@@ -32,16 +34,20 @@ export const ADD_CARD_MUTATION = gql`
 `;
 
 //Query to get all sequence cards
-export const GET_ALL_SEQUENCE_CARDS = gql`
-  query Query {
-    getAllSequenceCards {
+export const GET_SEQUENCE_TIMER = gql`
+  query Query($sequenceTimerId: ID!) {
+    sequenceTimer(sequenceTimerId: $sequenceTimerId) {
       title
       description
-      days
-      hours
-      minutes
-      seconds
-      imgUrl
+      timers {
+        title
+        description
+        days
+        hours
+        minutes
+        seconds
+        imgUrl
+      }
     }
   }
 `;

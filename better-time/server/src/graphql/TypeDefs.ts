@@ -2,19 +2,17 @@ import { gql } from "apollo-server-express";
 
 const typeDefs = gql`
   #Inputs
-  input addSequenceTimerInput {
-    title: String
-    description: String
-    imgUrl: String
-  }
 
   #Types
   type SequenceTimer {
+    id: ID
     title: String
     description: String
     imgUrl: String
+    timers: [SequenceCard]
   }
   type SequenceCard {
+    id: ID
     title: String
     description: String
     days: String
@@ -26,10 +24,9 @@ const typeDefs = gql`
 
   #Queries
   type Query {
-    getAllSequenceTimers: [SequenceTimer]
-  }
-  type Query {
-    getAllSequenceCards: [SequenceCard]
+    sequenceTimers: [SequenceTimer]
+    sequenceTimer(sequenceTimerId: ID!): SequenceTimer
+    sequenceCards(sequenceTimerId: ID!): [SequenceCard]
   }
 
   #Mutations
@@ -43,6 +40,7 @@ const typeDefs = gql`
 
   type Mutation {
     addSequenceCard(
+      sequenceTimerId: ID!
       title: String
       description: String
       days: String

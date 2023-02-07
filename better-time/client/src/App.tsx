@@ -37,7 +37,7 @@ function App() {
           <Route path="/favorites" element={<Favorites />}></Route>
           <Route path="/mytimers" element={<MyTimers />}></Route>
           <Route path="/social" element={<Social />}></Route>
-          <Route path="/sequencetimer" element={<SequenceTimerPage />}></Route>
+          <Route path="/sequencetimer/:id" element={<SequenceTimerPage />}></Route>
         </Routes>
       </div>
     </div>

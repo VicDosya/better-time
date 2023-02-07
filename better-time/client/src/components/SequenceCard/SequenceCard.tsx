@@ -1,10 +1,17 @@
+//Import packages
+import { useNavigate } from "react-router-dom";
+
 //Import styles and icons
 import styles from "./SequenceCard.module.css";
 import Avatar from "@mui/material/Avatar";
 
-function SequenceCard({ title, description, imgUrl }: any) {
+function SequenceCard({ id, title, description, imgUrl }: any) {
+
+  //useNavigate
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.cardsCtn}>
+    <div onClick={() => navigate(`/sequencetimer/${id}`)} className={styles.cardsCtn}>
       <div className={styles.card}>
         <div className={styles.titleCtn}>
           <p>{title}</p>

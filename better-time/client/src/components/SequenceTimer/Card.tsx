@@ -15,6 +15,7 @@ function Card({
       <div className={styles.card}>
         <div className={styles.titleCtn}>
           <p>{title}</p>
+          <p>{description}</p>
         </div>
         <div className={styles.timerDataCtn}>
           <p>{days}</p>

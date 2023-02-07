@@ -22,7 +22,7 @@ function MyTimers() {
 
   useEffect(() => {
     if (!loading && !error) {
-      setSequenceTimers(data.getAllSequenceTimers);
+      setSequenceTimers(data.sequenceTimers);
     }
   }, [loading, error, data]);
 

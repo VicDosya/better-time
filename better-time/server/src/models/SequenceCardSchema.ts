@@ -1,6 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const SequenceCard = new mongoose.Schema({
+  sequenceTimerId: {type: Schema.Types.ObjectId, ref:"sequencetimer"},
   title: String,
   description: String,
   days: String,

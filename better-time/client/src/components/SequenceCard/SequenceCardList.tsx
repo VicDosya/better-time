@@ -10,6 +10,7 @@ function SequenceCardList({ sequenceTimers }: any) {
       {sequenceTimers.map((sequenceTimer: any, key: any) => {
         return (
           <SequenceCard
+            id={sequenceTimer.id}
             title={sequenceTimer.title}
             description={sequenceTimer.description}
             imgUrl={sequenceTimer.imgUrl}

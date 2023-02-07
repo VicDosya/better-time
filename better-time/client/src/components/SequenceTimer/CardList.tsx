@@ -4,10 +4,10 @@ import Card from "./Card";
 //Import styles
 import styles from "./CardList.module.css";
 
-function CardList({ sequenceCards }: any) {
+function CardList({ sequenceCard }: any) {
   return (
     <div className={styles.cardCtn}>
-      {sequenceCards.map((sequenceCard: any, key: any) => {
+      {sequenceCard.map((sequenceCard: any, key: any) => {
         return (
           <Card
             title={sequenceCard.title}
