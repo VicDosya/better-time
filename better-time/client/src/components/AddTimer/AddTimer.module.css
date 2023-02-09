@@ -3,15 +3,6 @@
   right: 5%;
   bottom: 5%;
 }
-.exitBtnCtn {
-  display: flex;
-  justify-content: flex-end;
-  height: 5px;
-}
-.exitBtnCtn:hover {
-  cursor: pointer;
-}
-
 .firstModal {
   margin: 0 auto;
   margin-top: 125px;
@@ -24,6 +15,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.modalTitleCtn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.modalTitle {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.exitBtnCtn {
+  display: flex;
+  justify-content: flex-end;
+  height: 5px;
+}
+.exitBtnCtn:hover {
+  cursor: pointer;
 }
 .optionsCtn {
   display: flex;
@@ -45,7 +54,6 @@
   cursor: pointer;
   background-color: rgb(166, 166, 166);
 }
-
 .secondModal {
   margin: 0 auto;
   margin-top: 125px;
@@ -54,19 +62,9 @@
   width: 800px;
   background-color: rgb(243, 243, 243);
 }
-.modalTitle {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
 .secondModalContent {
   display: flex;
   flex-direction: column;
-}
-.modalTitleCtn {
-  width: 100%;
-  display: flex;
-  justify-content: center;
 }
 .inputCtn {
   display: flex;
@@ -76,7 +74,6 @@
 .dscInputCtn {
   margin-top: 15px;
 }
-
 .dropImgCtn {
   display: flex;
   justify-content: center;

@@ -1,12 +1,14 @@
-.homeCtn {
-  width: 100%;
+.pageCtn {
   display: flex;
+  width: 100%;
 }
 .sideSpaceCtn {
   width: 15px;
 }
-.contentCtn {
+.timersCtn {
   width: 100%;
+  display: flex;
+  flex-direction: column;
   background: rgb(255, 255, 255);
   background: linear-gradient(
     0deg,
@@ -14,5 +16,11 @@
     rgb(215, 215, 215) 100%
   );
   border-radius: 15px;
-  padding-left: 15px;
+}
+.sequencesCtn {
+  padding-left: 50px;
+}
+.cardsCtn {
+  display: flex;
+  flex-wrap: wrap;
 }

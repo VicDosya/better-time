@@ -1,5 +1,5 @@
 //Import packages
-import { ApolloServer, gql } from "apollo-server-express";
+import { ApolloServer } from "apollo-server-express";
 import mongoose from "mongoose";
 import express from "express";
 import cors from "cors";
@@ -7,8 +7,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 //Import Types and Schemas
-import typeDefs from "./models/TypeDefs";
-import resolvers from "./models/Resolvers";
+import typeDefs from "./graphql/TypeDefs";
+import resolvers from "./graphql/resolvers/Resolvers";
 
 //Database connection
 mongoose

@@ -4,19 +4,18 @@
   background-color: white;
   display: flex;
 }
-.webTitleCtn:hover {
-  cursor: pointer;
-}
 .titleButtonCtn {
   width: 350px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+.webTitleCtn:hover {
+  cursor: pointer;
+}
 .title {
   font-size: 23px;
 }
-
 .menuIconBtn {
   background-color: rgb(215, 215, 215);
   border: none;
@@ -37,14 +36,12 @@
   background-color: rgb(128, 128, 128);
   color: white;
 }
-
 .searchProfileCtn {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .profileSettingsCtn {
   display: flex;
   width: 100px;

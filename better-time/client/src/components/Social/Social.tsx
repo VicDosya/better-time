@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from './Social.module.css';
+//Import styles
+import styles from "./Social.module.css";
 
 function Social() {
   return (
@@ -10,7 +10,7 @@ function Social() {
       </div>
       <div className={styles.sideSpaceCtn}></div>
     </div>
-  )
+  );
 }
 
-export default Social
+export default Social;

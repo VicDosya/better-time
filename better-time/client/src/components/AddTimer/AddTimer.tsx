@@ -1,12 +1,13 @@
 //Import packages
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "react-modal";
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-//Import components and queries
+
+//Import queries
 import { ADD_TIMER_MUTATION } from "./AddTimerQueries";
 
-//Import Styles and icons
+//Import styles and icons
 import styles from "./AddTimer.module.css";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
@@ -21,13 +22,11 @@ function AddTimer() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [imgUrl, setImgUrl] = useState("");
-  //MESSAGES
-  const [message, setMessage] = useState("");
 
   //useNavigate
   const navigate = useNavigate();
 
-  //useMutations hook, assign query mutation function to AddTimerMutation
+  //useMutations + loading and error conditions
   const [addTimerMutation, { data, loading, error }] =
     useMutation(ADD_TIMER_MUTATION);
 
@@ -38,14 +37,19 @@ function AddTimer() {
   if (error) {
     return <p>Error: {error.message}</p>;
   }
-  //Handle create timer
-  const handleCreate = () => {
+
+  //Create a new timer function + navigation to sequence timer page with its data
+  const handleCreate = async () => {
     //Assigning the variables from user input
-    addTimerMutation({ variables: { title, description, imgUrl } });
+    const { data } = await addTimerMutation({ variables: { title, description, imgUrl } });
     setAddSequenceTimerModal(false);
+    console.log(data);
+    navigate(`/sequencetimer/${data.addSequenceTimer.id}`);
   };
 
+  //Modal set root of the app element
   Modal.setAppElement("#root");
+
   return (
     <div>
       <div className={styles.addBtnCtn}>
@@ -68,9 +72,7 @@ function AddTimer() {
                 <h2>Create a new timer</h2>
               </div>
               <div className={styles.exitBtnCtn}>
-                <CloseIcon
-                  onClick={() => setAddTimerModal(false)}
-                ></CloseIcon>
+                <CloseIcon onClick={() => setAddTimerModal(false)}></CloseIcon>
               </div>
             </div>
             <p>Choose your timer:</p>
@@ -117,9 +119,6 @@ function AddTimer() {
                   onClick={() => setAddSequenceTimerModal(false)}
                 ></CloseIcon>
               </div>
-            </div>
-            <div>
-              <p>{message}</p>
             </div>
             <div className={styles.inputCtn}>
               <div className={styles.titleInputCtn}>

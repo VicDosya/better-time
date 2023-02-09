@@ -1,0 +1,4 @@
+.cardCtn {
+  display: flex;
+  flex-wrap: wrap;
+}

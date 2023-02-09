@@ -1,12 +1,13 @@
 import { gql } from "@apollo/client";
 
-//query to get all sequence timers
+//Get all sequence timers query
 export const GET_ALL_SEQUENCE_TIMERS = gql`
   query Query {
-    getAllSequenceTimers {
+    sequenceTimers {
+      id
+      title
       description
       imgUrl
-      title
     }
   }
 `;
