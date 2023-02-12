@@ -2,6 +2,9 @@
 import SequenceTimerSchema from "../../models/SequenceTimerSchema";
 import SequenceCardSchema from "../../models/SequenceCardSchema";
 
+//Import components
+import { checkAuth } from "../../util/check-auth";
+
 const SequenceTimerResolvers = {
   SequenceTimer: {
     timers: async (parent: any) => {
@@ -31,15 +34,30 @@ const SequenceTimerResolvers = {
     //Adding a new sequence timer
     addSequenceTimer: async (
       parent: any,
-      { title, description, imgUrl }: any
+      { title, description, imgUrl }: any,
+      context: any
     ) => {
-      const sequenceTimer = new SequenceTimerSchema({
-        title,
-        description,
-        imgUrl,
-      });
-      const timer = await sequenceTimer.save();
-      return timer;
+      console.log("HEllo!?");
+      try {
+        //User authentication
+        console.log("Before checkauth");
+        const user = checkAuth(context) as any;
+        console.log("After checkauth");
+        console.log(user);
+
+        const sequenceTimer = new SequenceTimerSchema({
+          user: user._id,
+          username: user.username,
+          title,
+          description,
+          imgUrl,
+          createdAt: new Date().toISOString(),
+        });
+        const timer = await sequenceTimer.save();
+        return timer;
+      } catch (err: any) {
+        throw new Error(err.message);
+      }
     },
     //Adding a new time card in the sequence timer page
     addSequenceCard: (

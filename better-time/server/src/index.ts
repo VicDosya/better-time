@@ -20,6 +20,7 @@ mongoose
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
+  // context: ({ req }) => ({ req }), //Take the req body and forward it to the context so we can access it.
 });
 
 const app = express();
